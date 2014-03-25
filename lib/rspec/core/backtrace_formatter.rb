@@ -4,6 +4,7 @@ module RSpec
     #
     # The default backtrace formatter
     class BacktraceFormatter
+      # @private
       attr_accessor :exclusion_patterns, :inclusion_patterns
 
       def initialize
