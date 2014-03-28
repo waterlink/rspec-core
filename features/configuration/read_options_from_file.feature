@@ -19,7 +19,7 @@ Feature: read command line configuration options from files
       """
     And a file named "spec/example_spec.rb" with:
       """ruby
-      describe "color_enabled" do
+      describe "color" do
         context "when set with RSpec.configure" do
           before do
             # color is disabled for non-tty output, so stub the output stream
@@ -28,7 +28,7 @@ Feature: read command line configuration options from files
           end
 
           it "is true" do
-            RSpec.configuration.should be_color_enabled
+            RSpec.configuration.should be_color
           end
         end
       end
@@ -66,7 +66,7 @@ Feature: read command line configuration options from files
       """ruby
       describe "custom options file" do
         it "causes .rspec to be ignored" do
-          RSpec.configuration.color_enabled.should be_falsey
+          RSpec.configuration.color.should be_falsey
         end
       end
       """

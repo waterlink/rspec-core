@@ -46,6 +46,10 @@ Deprecations:
   just `shared_examples`. (Myron Marston)
 * Deprecate `RSpec::Core::CommandLine` in favor of
   `RSpec::Core::Runner`. (Myron Marston)
+* Deprecate `#color_enabled` (and ? and =) in favour of `#color` and friends.
+  (Jon Rowe)
+* Deprecate `#filename_pattern` in favour of `#pattern`. (Jon Rowe)
+* Deprecate `#backtrace_cleaner` in favour of `#backtrace_formatter`. (Jon Rowe)
 
 ### 2.99.0.beta2 / 2014-02-17
 [full changelog](http://github.com/rspec/rspec-core/compare/v2.99.0.beta1...v2.99.0.beta2)

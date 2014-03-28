@@ -3,6 +3,7 @@ require 'rspec/core/formatters/documentation_formatter'
 
 module RSpec::Core::Formatters
   describe DocumentationFormatter do
+
     it "numbers the failures" do
 
       examples = [
@@ -17,7 +18,7 @@ module RSpec::Core::Formatters
       ]
 
       output = StringIO.new
-      RSpec.configuration.stub(:color_enabled?) { false }
+      RSpec.configuration.stub(:color?) { false }
 
       formatter = RSpec::Core::Formatters::DocumentationFormatter.new(output)
 
@@ -29,7 +30,7 @@ module RSpec::Core::Formatters
 
     it "represents nested group using hierarchy tree" do
       output = StringIO.new
-      RSpec.configuration.stub(:color_enabled?) { false }
+      RSpec.configuration.stub(:color?) { false }
 
       formatter = RSpec::Core::Formatters::DocumentationFormatter.new(output)
 
@@ -64,7 +65,7 @@ root
 
     it "strips whitespace for each row" do
       output = StringIO.new
-      RSpec.configuration.stub(:color_enabled?) { false }
+      RSpec.configuration.stub(:color?) { false }
 
       formatter = RSpec::Core::Formatters::DocumentationFormatter.new(output)
 

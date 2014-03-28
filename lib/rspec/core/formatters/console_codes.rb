@@ -29,7 +29,7 @@ module RSpec
         end
 
         def wrap(text, code_or_symbol)
-          if RSpec.configuration.color_enabled?
+          if RSpec.configuration.color?
             "\e[#{console_code_for(code_or_symbol)}m#{text}\e[0m"
           else
             text

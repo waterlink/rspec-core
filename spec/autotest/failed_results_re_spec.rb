@@ -29,7 +29,7 @@ describe "failed_results_re for autotest" do
 
   context "with color enabled" do
     before do
-      RSpec.configuration.stub(:color_enabled? => true)
+      RSpec.configuration.stub(:color? => true)
     end
 
     include_examples "autotest failed_results_re"
@@ -37,7 +37,7 @@ describe "failed_results_re for autotest" do
 
   context "with color disabled " do
     before do
-      RSpec.configuration.stub(:color_enabled? => false)
+      RSpec.configuration.stub(:color? => false)
     end
 
     include_examples "autotest failed_results_re"

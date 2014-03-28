@@ -34,7 +34,7 @@ describe RSpec::Core::Formatters::BaseTextFormatter do
   describe "#dump_failures" do
     let(:group) { RSpec::Core::ExampleGroup.describe("group name") }
 
-    before { RSpec.configuration.stub(:color_enabled?) { false } }
+    before { RSpec.configuration.stub(:color?) { false } }
 
     def run_all_and_dump_failures
       group.run(formatter)
@@ -194,7 +194,7 @@ describe RSpec::Core::Formatters::BaseTextFormatter do
   describe "#dump_pending" do
     let(:group) { RSpec::Core::ExampleGroup.describe("group name") }
 
-    before { RSpec.configuration.stub(:color_enabled?) { false } }
+    before { RSpec.configuration.stub(:color?) { false } }
 
     def run_all_and_dump_pending
       group.run(formatter)
@@ -446,7 +446,7 @@ describe RSpec::Core::Formatters::BaseTextFormatter do
   describe "custom_colors" do
     it "uses the custom success color" do
       RSpec.configure do |config|
-        config.color_enabled = true
+        config.color = true
         config.tty = true
         config.success_color = :cyan
       end
@@ -457,7 +457,7 @@ describe RSpec::Core::Formatters::BaseTextFormatter do
 
   describe "#colorize" do
     before do
-      allow(RSpec.configuration).to receive(:color_enabled?) { true }
+      allow(RSpec.configuration).to receive(:color?) { true }
     end
 
     it "accepts a VT100 integer code and formats the text with it" do
@@ -495,7 +495,7 @@ describe RSpec::Core::Formatters::BaseTextFormatter do
 
     describe "##{name}" do
       before do
-        allow(RSpec.configuration).to receive(:color_enabled?) { true }
+        allow(RSpec.configuration).to receive(:color?) { true }
         allow(RSpec).to receive(:deprecate)
       end
 

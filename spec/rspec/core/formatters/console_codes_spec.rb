@@ -26,7 +26,7 @@ RSpec.describe "RSpec::Core::Formatters::ConsoleCodes" do
 
   describe "#wrap" do
     before do
-      allow(RSpec.configuration).to receive(:color_enabled?) { true }
+      allow(RSpec.configuration).to receive(:color?) { true }
     end
 
     context "when given a VT100 integer code" do

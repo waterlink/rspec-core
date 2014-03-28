@@ -233,7 +233,7 @@ module RSpec
         end
 
         def color_enabled?
-          configuration.color_enabled?(output)
+          configuration.color?(output)
         end
 
         def mute_profile_output?(failure_count)
