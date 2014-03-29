@@ -284,7 +284,7 @@ module RSpec::Core
       it "supports multiple calls" do
         config.expect_with :rspec
         config.expect_with :stdlib
-        expect(config.expectation_frameworks).to eq [RSpec::Matchers, Test::Unit::Assertions]
+        expect(config.expectation_frameworks).to eq [RSpec::Matchers, RSpec::Core::StdlibAssertionsAdapter]
       end
 
       it "raises if block given with multiple args" do
