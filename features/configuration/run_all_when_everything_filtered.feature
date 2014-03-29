@@ -1,12 +1,12 @@
 Feature: run all when everything filtered
 
-  Use the `run_all_when_everything_filtered` option to tell RSpec to run all the
-  specs in the case where you try to run a filtered list of specs but no specs
-  match that filter. This works well when paired with an inclusion filter like
-  `:focus => true`, as it will run all the examples when none match the
+  Use the `run_all_when_everything_filtered` option to tell RSpec to run all
+  the specs in the case where you try to run a filtered list of specs but no
+  specs match that filter. This works well when paired with an inclusion filter
+  like `:focus => true`, as it will run all the examples when none match the
   inclusion filter.
 
-    RSpec.configure { |c| c.run_all_when_everything_filtered = true }
+      RSpec.configure { |c| c.run_all_when_everything_filtered = true }
 
   Background:
     Given a file named "spec/spec_helper.rb" with:

@@ -2,8 +2,8 @@ Feature: --format option
 
   Use the `--format` option to tell RSpec how to format the output.
 
-  RSpec ships with several formatters built in. By default, it uses the progress
-  formatter, which generates output like this:
+  RSpec ships with several formatters built in. By default, it uses the
+  progress formatter, which generates output like this:
 
       ....F.....*.....
 
