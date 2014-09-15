@@ -53,6 +53,17 @@ module RSpec
     @configuration = nil
   end
 
+  # Used to ensure examples get reloaded between multiple runs in the same
+  # process and ensures user configuration is persisted.
+  #
+  # Users must invoke this if they want to clear all examples but preserve
+  # current configuration when they use runner multiple times within the same
+  # process.
+  def self.clear_examples
+    world.reset
+    configuration.reset_filter_and_reporter
+  end
+
   # Returns the global [Configuration](RSpec/Core/Configuration) object. While you
   # _can_ use this method to access the configuration, the more common
   # convention is to use [RSpec.configure](RSpec#configure-class_method).

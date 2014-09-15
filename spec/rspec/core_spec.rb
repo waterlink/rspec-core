@@ -74,6 +74,18 @@ RSpec.describe RSpec do
     end
   end
 
+  describe "::clear_examples" do
+    it "resets the world" do
+      expect(RSpec.world).to receive(:reset)
+      RSpec.clear_examples
+    end
+
+    it "resets filter manager and reporter in configuration" do
+      expect(RSpec.configuration).to receive(:reset_filter_and_reporter)
+      RSpec.clear_examples
+    end
+  end
+
   describe "::Core.path_to_executable" do
     it 'returns the absolute location of the exe/rspec file' do
       expect(File.exist? RSpec::Core.path_to_executable).to be_truthy

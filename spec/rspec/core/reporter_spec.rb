@@ -9,6 +9,55 @@ module RSpec::Core
     let(:start_time) { Time.now }
     let(:example) { super() }
 
+    describe "#reset" do
+      let(:failed_example) { super() }
+      let(:pending_example) { super() }
+
+      def normal_reporter_run
+        reporter.start(3)
+        reporter.example_started(example)
+        reporter.example_failed(example)
+        reporter.example_pending(example)
+        reporter.finish
+      end
+
+      it "resets examples" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.examples).to eq([])
+      end
+
+      it "resets pending examples" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.pending_examples).to eq([])
+      end
+
+      it "resets failed examples" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.failed_examples).to eq([])
+      end
+
+      it "resets duration" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.instance_variable_get("@duration")).to eq(nil)
+      end
+
+      it "resets start timestamp" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.instance_variable_get("@start")).to eq(nil)
+      end
+
+      it "resets load_time stamp" do
+        normal_reporter_run
+        reporter.reset
+        expect(reporter.instance_variable_get("@load_time")).to eq(nil)
+      end
+    end
+
     describe "finish" do
       let(:formatter) { double("formatter") }
 

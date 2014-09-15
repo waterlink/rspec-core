@@ -1578,6 +1578,27 @@ module RSpec::Core
       end
     end
 
+    describe "#reset_filter_and_reporter" do
+      it "resets start_time" do
+        start_time_before_reset = config.start_time
+        config.reset_filter_and_reporter
+        expect(config.start_time).not_to be(start_time_before_reset)
+      end
+
+      it "clears the filter manager" do
+        filter_manager_before_reset = config.instance_variable_get("@filter_manager")
+        config.reset_filter_and_reporter
+        expect(config.instance_variable_get("@filter_manager")).not_to eq(
+          filter_manager_before_reset
+        )
+      end
+
+      it "resets the reporter" do
+        expect(config.reporter).to receive(:reset)
+        config.reset_filter_and_reporter
+      end
+    end
+
     describe "#force" do
       context "for ordering options" do
         let(:list) { [1, 2, 3, 4] }

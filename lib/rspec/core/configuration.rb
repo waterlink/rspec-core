@@ -332,6 +332,13 @@ module RSpec
         @formatter_loader = nil
       end
 
+      # @private
+      def reset_filter_and_reporter
+        @filter_manager = FilterManager.new
+        @start_time = RSpec::Core::Time.now
+        @reporter && @reporter.reset
+      end
+
       # @overload add_setting(name)
       # @overload add_setting(name, opts)
       # @option opts [Symbol] :default

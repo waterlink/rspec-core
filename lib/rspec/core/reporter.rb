@@ -12,6 +12,14 @@ module RSpec::Core
     end
 
     # @private
+    def reset
+      @examples = []
+      @failed_examples = []
+      @pending_examples = []
+      @duration = @start = @load_time = nil
+    end
+
+    # @private
     attr_reader :examples, :failed_examples, :pending_examples
 
     # Registers a listener to a list of notifications. The reporter will send notification of
